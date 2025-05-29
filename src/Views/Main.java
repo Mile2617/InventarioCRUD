@@ -14,90 +14,74 @@ public class Main {
         int opcion;
 
         do {
-            System.out.println("\n=== MENÚ INVENTARIO ===");
-            System.out.println("1. Crear producto electrónico");
-            System.out.println("2. Crear producto cosmético");
-            System.out.println("3. Mostrar productos");
-            System.out.println("4. Buscar producto por SKU");
-            System.out.println("5. Actualizar producto");
-            System.out.println("6. Eliminar producto");
-            System.out.println("7. Mostrar totales");
+            System.out.println("\n=== MENU INVENTARIO ===");
+            System.out.println("1. Crear producto");
+            System.out.println("2. Mostrar productos");
+            System.out.println("3. Buscar producto por SKU");
+            System.out.println("4. Actualizar producto");
+            System.out.println("5. Eliminar producto");
+            System.out.println("6. Mostrar totales");
             System.out.println("0. Salir");
-            System.out.print("Seleccione una opción: ");
+            System.out.print("Seleccione una opcion: ");
             opcion = scanner.nextInt(); scanner.nextLine();
 
             switch (opcion) {
-                case 1 -> crearElectronico();
-                case 2 -> crearCosmetico();
-                case 3 -> sistema.ListProducto();
-                case 4 -> buscarProducto();
-                case 5 -> actualizarProducto();
-                case 6 -> eliminarProducto();
-                case 7 -> mostrarTotales();
+                case 1 -> crearProducto();
+                case 2 -> sistema.ListProducto();
+                case 3 -> buscarProducto();
+                case 4 -> actualizarProducto();
+                case 5 -> eliminarProducto();
+                case 6 -> mostrarTotales();
                 case 0 -> System.out.println("Saliendo...");
-                default -> System.out.println("Opción inválida.");
+                default -> System.out.println("Opcion invalida.");
             }
         } while (opcion != 0);
     }
 
+    private static void crearProducto() {
+        System.out.println("Ingrese el tipo de producto (1 - Electronico, 2 - Cosmetico): ");
+        int tipo = scanner.nextInt(); scanner.nextLine();
+        if (tipo == 1) {
+            crearElectronico();
+        } else if (tipo == 2) {
+            crearCosmetico();
+        } else {
+            System.out.println("Tipo invalido.");
+        }
+    }
+
     private static void crearElectronico() {
-        System.out.print("SKU: ");
-        String sku = scanner.nextLine();
-        System.out.print("Nombre: ");
-        String nombre = scanner.nextLine();
-        System.out.print("Costo: ");
-        double costo = scanner.nextDouble();
-        System.out.print("Precio de venta: ");
-        double precio = scanner.nextDouble();
-        scanner.nextLine(); // limpiar
-        System.out.print("Descripción: ");
-        String descripcion = scanner.nextLine();
-        System.out.print("Cantidad: ");
-        int cantidad = scanner.nextInt();
-        scanner.nextLine();
-        System.out.print("Marca: ");
-        String marca = scanner.nextLine();
-        System.out.print("Voltaje: ");
-        double voltaje = scanner.nextDouble();
-        System.out.print("Garantía (meses): ");
-        int garantia = scanner.nextInt();
-        scanner.nextLine();
+        System.out.print("SKU: "); String sku = scanner.nextLine();
+        System.out.print("Nombre: "); String nombre = scanner.nextLine();
+        System.out.print("Costo: "); double costo = scanner.nextDouble();
+        System.out.print("Precio de venta: "); double precio = scanner.nextDouble(); scanner.nextLine();
+        System.out.print("Descripcion: "); String descripcion = scanner.nextLine();
+        System.out.print("Cantidad: "); int cantidad = scanner.nextInt(); scanner.nextLine();
+        System.out.print("Marca: "); String marca = scanner.nextLine();
+        System.out.print("Voltaje: "); double voltaje = scanner.nextDouble();
+        System.out.print("Garantia (meses): "); int garantia = scanner.nextInt(); scanner.nextLine();
 
         sistema.createProducto(sku, nombre, costo, precio, descripcion, cantidad, marca, voltaje, garantia);
-        System.out.println("Producto electrónico creado.");
+        System.out.println("Producto electronico creado.");
     }
 
     private static void crearCosmetico() {
         try {
-            System.out.print("SKU: ");
-            String sku = scanner.nextLine();
-            System.out.print("Nombre: ");
-            String nombre = scanner.nextLine();
-            System.out.print("Costo: ");
-            double costo = scanner.nextDouble();
-            System.out.print("Precio de venta: ");
-            double precio = scanner.nextDouble();
-            scanner.nextLine();
-            System.out.print("Descripción: ");
-            String descripcion = scanner.nextLine();
-            System.out.print("Cantidad: ");
-            int cantidad = scanner.nextInt();
-            scanner.nextLine();
-            System.out.print("Marca: ");
-            String marca = scanner.nextLine();
-            System.out.print("Lote: ");
-            String lote = scanner.nextLine();
-            System.out.print("Fecha de elaboración (yyyy-MM-dd): ");
-            Date fechaElab = new SimpleDateFormat("yyyy-MM-dd").parse(scanner.nextLine());
-            System.out.print("Fecha de vencimiento (yyyy-MM-dd): ");
-            Date fechaVenc = new SimpleDateFormat("yyyy-MM-dd").parse(scanner.nextLine());
-            System.out.print("Ingredientes: ");
-            String ingredientes = scanner.nextLine();
-            System.out.print("Tipo de producto: ");
-            String tipo = scanner.nextLine();
+            System.out.print("SKU: "); String sku = scanner.nextLine();
+            System.out.print("Nombre: "); String nombre = scanner.nextLine();
+            System.out.print("Costo: "); double costo = scanner.nextDouble();
+            System.out.print("Precio de venta: "); double precio = scanner.nextDouble(); scanner.nextLine();
+            System.out.print("Descripci\u00f3n: "); String descripcion = scanner.nextLine();
+            System.out.print("Cantidad: "); int cantidad = scanner.nextInt(); scanner.nextLine();
+            System.out.print("Marca: "); String marca = scanner.nextLine();
+            System.out.print("Lote: "); String lote = scanner.nextLine();
+            System.out.print("Fecha de elaboraci\u00f3n (yyyy-MM-dd): "); Date fechaElab = new SimpleDateFormat("yyyy-MM-dd").parse(scanner.nextLine());
+            System.out.print("Fecha de vencimiento (yyyy-MM-dd): "); Date fechaVenc = new SimpleDateFormat("yyyy-MM-dd").parse(scanner.nextLine());
+            System.out.print("Ingredientes: "); String ingredientes = scanner.nextLine();
+            System.out.print("Tipo de producto: "); String tipo = scanner.nextLine();
 
             sistema.createProducto(sku, nombre, costo, precio, descripcion, cantidad, marca, lote, fechaElab, fechaVenc, ingredientes, tipo);
-            System.out.println("Producto cosmético creado.");
+            System.out.println("Producto cosm\u00e9tico creado.");
         } catch (Exception e) {
             System.out.println("Error en formato de fecha. Intente de nuevo.");
         }
@@ -112,20 +96,35 @@ public class Main {
     private static void actualizarProducto() {
         System.out.print("Ingrese el SKU del producto a actualizar: ");
         String sku = scanner.nextLine();
-        System.out.print("Nuevo nombre: ");
-        String nombre = scanner.nextLine();
-        System.out.print("Nuevo costo: ");
-        double costo = scanner.nextDouble();
-        System.out.print("Nuevo precio: ");
-        double precio = scanner.nextDouble();
-        System.out.print("Nueva cantidad: ");
-        int cantidad = scanner.nextInt();
-        scanner.nextLine();
+        sistema.readProducto(sku);
 
-        if (sistema.updateProducto(sku, nombre, costo, precio, cantidad)) {
-            System.out.println("Producto actualizado correctamente.");
-        } else {
-            System.out.println("Producto no encontrado.");
+        System.out.println("Seleccione el campo a actualizar:");
+        System.out.println("1. Nombre\n2. Costo\n3. Precio\n4. Cantidad");
+        System.out.print("Opci\u00f3n: ");
+        int opcion = scanner.nextInt(); scanner.nextLine();
+
+        switch (opcion) {
+            case 1 -> {
+                System.out.print("Nuevo nombre: ");
+                String nombre = scanner.nextLine();
+                sistema.updateProducto(sku, nombre, -1, -1, -1);
+            }
+            case 2 -> {
+                System.out.print("Nuevo costo: ");
+                double costo = scanner.nextDouble();
+                sistema.updateProducto(sku, null, costo, -1, -1);
+            }
+            case 3 -> {
+                System.out.print("Nuevo precio: ");
+                double precio = scanner.nextDouble();
+                sistema.updateProducto(sku, null, -1, precio, -1);
+            }
+            case 4 -> {
+                System.out.print("Nueva cantidad: ");
+                int cantidad = scanner.nextInt();
+                sistema.updateProducto(sku, null, -1, -1, cantidad);
+            }
+            default -> System.out.println("Opci\u00f3n inv\u00e1lida.");
         }
     }
 
